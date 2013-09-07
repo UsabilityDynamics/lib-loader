@@ -1,0 +1,37 @@
+{
+    "project": {
+        "name": "loader",
+        "version": "0.0.1",
+        "url": "https://github.com/UsabilityDynamics/lib-loader/",
+        "logo": "http://a3d72a45d111006ec192-ec5b80a12b0b09b4d52373336afb4254.r80.cf1.rackcdn.com/usability-dynamics.png"
+    },
+    "files": {
+        "scripts/loader.js": {
+            "name": "scripts/loader.js",
+            "modules": {},
+            "classes": {
+                "loader": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "loader": {
+            "name": "loader",
+            "shortname": "loader",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "scripts/loader.js",
+            "line": 1,
+            "description": "JavaScript Asset Loader",
+            "author": "potanin@UD"
+        }
+    },
+    "classitems": [],
+    "warnings": []
+}

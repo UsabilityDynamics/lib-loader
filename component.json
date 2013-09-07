@@ -4,10 +4,7 @@
   "description": "Asset loader.",
   "homepage": "http://github.com/UsabilityDynamics/lib-loader",
   "private": false,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/UsabilityDynamics/lib-loader"
-  },
+  "repo": "UsabilityDynamics/lib-loader",
   "dependencies": {
     "usabilitydynamics/lib-utility": "*"
   },  

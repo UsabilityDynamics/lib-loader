@@ -8,12 +8,6 @@
   "dependencies": {
     "usabilitydynamics/lib-utility": "*"
   },  
-  "lib": [
-    "lib/core.php"
-  ],
-  "files": [
-    "files/schema.json"
-  ],
   "scripts": [
     "scripts/loader.js",
     "scripts/loader.php"

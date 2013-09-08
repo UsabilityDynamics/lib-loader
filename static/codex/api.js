@@ -1,9 +1,18 @@
 YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
-        "loader"
+        "Loader",
+        "Loader.Loader"
     ],
-    "modules": [],
-    "allModules": []
+    "modules": [
+        "Loader"
+    ],
+    "allModules": [
+        {
+            "displayName": "Loader",
+            "name": "Loader",
+            "description": "PHP Loader"
+        }
+    ]
 } };
 });

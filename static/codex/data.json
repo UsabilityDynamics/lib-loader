@@ -10,28 +10,593 @@
             "name": "scripts/loader.js",
             "modules": {},
             "classes": {
-                "loader": 1
+                "Loader.Loader": 1
             },
             "fors": {},
-            "namespaces": {}
+            "namespaces": {
+                "Loader": 1
+            }
+        },
+        "scripts/loader.php": {
+            "name": "scripts/loader.php",
+            "modules": {
+                "Loader": 1
+            },
+            "classes": {
+                "Loader": 1
+            },
+            "fors": {
+                "Loader": 1
+            },
+            "namespaces": {
+                "UsabilityDynamics": 1
+            }
         }
     },
-    "modules": {},
+    "modules": {
+        "Loader": {
+            "name": "Loader",
+            "submodules": {},
+            "classes": {
+                "Loader.Loader": 1,
+                "Loader": 1
+            },
+            "fors": {
+                "Loader": 1
+            },
+            "namespaces": {},
+            "tag": "module",
+            "file": "scripts/loader.php",
+            "line": 12,
+            "description": "PHP Loader",
+            "version": "0.0.3",
+            "author": "potanin@UD"
+        }
+    },
     "classes": {
-        "loader": {
-            "name": "loader",
-            "shortname": "loader",
+        "Loader.Loader": {
+            "name": "Loader.Loader",
+            "shortname": "Loader.Loader",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
+            "module": "Loader",
+            "namespace": "Loader",
             "file": "scripts/loader.js",
             "line": 1,
-            "description": "JavaScript Asset Loader",
+            "description": "UD Loader\n\nJavaScript, CSS and PHP library loader.",
+            "author": "potanin@UD"
+        },
+        "Loader": {
+            "name": "Loader",
+            "shortname": "Loader",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Loader",
+            "namespace": "",
+            "file": "scripts/loader.php",
+            "line": 12,
+            "description": "Loader implements a PSR-0 class loader\n\n    $loader = new \\UsabilityDynamics\\Loader();\n\n    // register classes with namespaces\n    $loader->add( 'Symfony', __DIR__ . '/framework' );\n\n    // register classes with namespaces by passing an array\n    $loader->add( array(\n       'UsabilityDynamics\\\\' => __DIR__ . '/usabilitydynamics'\n       'JsonSchema\\\\' => __DIR__ . '/jsonschema/src'\n    ));\n\n    // activate the autoloader\n    $loader->register();\n\nThis class is loosely based on the Symfony UniversalClassLoader.",
             "author": "potanin@UD"
         }
     },
-    "classitems": [],
-    "warnings": []
+    "classitems": [
+        {
+            "file": "scripts/loader.js",
+            "line": 23,
+            "description": "Creates and returns an HTML element with the specified name and attributes.",
+            "class": "Loader.Loader",
+            "namespace": "Loader"
+        },
+        {
+            "file": "scripts/loader.js",
+            "line": 39,
+            "description": "Called when the current pending resource of the specified type has finished\nloading. Executes the associated callback (if any) and loads the next\nresource in the queue.",
+            "itemtype": "method",
+            "name": "finish",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "resource type ('css' or 'js')",
+                    "type": "String"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Loader.Loader",
+            "namespace": "Loader"
+        },
+        {
+            "file": "scripts/loader.js",
+            "line": 68,
+            "description": "Populates the <code>env</code> variable with user agent and feature test\ninformation.",
+            "itemtype": "method",
+            "name": "getEnv",
+            "access": "private",
+            "tagname": "",
+            "class": "Loader.Loader",
+            "namespace": "Loader"
+        },
+        {
+            "file": "scripts/loader.js",
+            "line": 88,
+            "description": "Loads the specified resources, or the next resource of the specified type\nin the queue if no resources are specified. If a resource of the specified\ntype is already being loaded, the new request will be queued until the\nfirst request has been finished.\n\nWhen an array of resource URLs is specified, those URLs will be loaded in\nparallel if it is possible to do so while preserving execution order. All\nbrowsers support parallel loading of CSS, but only Firefox and Opera\nsupport parallel loading of scripts. In other browsers, scripts will be\nqueued and loaded one at a time to ensure correct execution order.",
+            "itemtype": "method",
+            "name": "load",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "resource type ('css' or 'js')",
+                    "type": "String"
+                },
+                {
+                    "name": "urls",
+                    "description": "(optional) URL or array of URLs to load",
+                    "type": "String|Array"
+                },
+                {
+                    "name": "callback",
+                    "description": "(optional) callback function to execute when the\nresource is loaded",
+                    "type": "Function"
+                },
+                {
+                    "name": "obj",
+                    "description": "(optional) object to pass to the callback function",
+                    "type": "Object"
+                },
+                {
+                    "name": "context",
+                    "description": "(optional) if provided, the callback function will\nbe executed in this object's context",
+                    "type": "Object"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Loader.Loader",
+            "namespace": "Loader"
+        },
+        {
+            "file": "scripts/loader.js",
+            "line": 212,
+            "description": "Begins polling to determine when the specified stylesheet has finished loading\nin Gecko. Polling stops when all pending stylesheets have loaded or after 10\nseconds (to prevent stalls).\n\nThanks to Zach Leatherman for calling my attention to the @import-based\ncross-domain technique used here, and to Oleg Slobodskoi for an earlier\nsame-domain implementation. See Zach's blog for more details:\nhttp://www.zachleat.com/web/2010/07/29/load-css-dynamically/",
+            "itemtype": "method",
+            "name": "pollGecko",
+            "params": [
+                {
+                    "name": "node",
+                    "description": "Style node to poll.",
+                    "type": "HTMLElement"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Loader.Loader",
+            "namespace": "Loader"
+        },
+        {
+            "file": "scripts/loader.js",
+            "line": 256,
+            "description": "Begins polling to determine when pending stylesheets have finished loading\nin WebKit. Polling stops when all pending stylesheets have loaded or after 10\nseconds (to prevent stalls).",
+            "itemtype": "method",
+            "name": "pollWebKit",
+            "access": "private",
+            "tagname": "",
+            "class": "Loader.Loader",
+            "namespace": "Loader"
+        },
+        {
+            "file": "scripts/loader.js",
+            "line": 296,
+            "description": "Requests the specified CSS URL or URLs and executes the specified\ncallback (if any) when they have finished loading. If an array of URLs is\nspecified, the stylesheets will be loaded in parallel and the callback\nwill be executed after all stylesheets have finished loading.",
+            "itemtype": "method",
+            "name": "css",
+            "params": [
+                {
+                    "name": "urls",
+                    "description": "CSS URL or array of CSS URLs to load",
+                    "type": "String|Array"
+                },
+                {
+                    "name": "callback",
+                    "description": "(optional) callback function to execute when\nthe specified stylesheets are loaded",
+                    "type": "Function"
+                },
+                {
+                    "name": "obj",
+                    "description": "(optional) object to pass to the callback function",
+                    "type": "Object"
+                },
+                {
+                    "name": "context",
+                    "description": "(optional) if provided, the callback function\nwill be executed in this object's context",
+                    "type": "Object"
+                }
+            ],
+            "static": 1,
+            "class": "Loader.Loader",
+            "namespace": "Loader"
+        },
+        {
+            "file": "scripts/loader.js",
+            "line": 315,
+            "description": "Requests the specified JavaScript URL or URLs and executes the specified\ncallback (if any) when they have finished loading. If an array of URLs is\nspecified and the browser supports it, the scripts will be loaded in\nparallel and the callback will be executed after all scripts have\nfinished loading.\n\nCurrently, only Firefox and Opera support parallel loading of scripts while\npreserving execution order. In other browsers, scripts will be\nqueued and loaded one at a time to ensure correct execution order.",
+            "itemtype": "method",
+            "name": "js",
+            "params": [
+                {
+                    "name": "urls",
+                    "description": "JS URL or array of JS URLs to load",
+                    "type": "String|Array"
+                },
+                {
+                    "name": "callback",
+                    "description": "(optional) callback function to execute when\nthe specified scripts are loaded",
+                    "type": "Function"
+                },
+                {
+                    "name": "obj",
+                    "description": "(optional) object to pass to the callback function",
+                    "type": "Object"
+                },
+                {
+                    "name": "context",
+                    "description": "(optional) if provided, the callback function\nwill be executed in this object's context",
+                    "type": "Object"
+                }
+            ],
+            "static": 1,
+            "class": "Loader.Loader",
+            "namespace": "Loader"
+        },
+        {
+            "file": "scripts/loader.php",
+            "line": 36,
+            "description": "Loader Class version.",
+            "itemtype": "property",
+            "name": "$version",
+            "type": "{Object}",
+            "class": "Loader",
+            "module": "Loader"
+        },
+        {
+            "file": "scripts/loader.php",
+            "line": 44,
+            "description": "Extra header parameters.",
+            "itemtype": "property",
+            "name": "$headers",
+            "type": "{Object}",
+            "class": "Loader",
+            "module": "Loader"
+        },
+        {
+            "file": "scripts/loader.php",
+            "line": 64,
+            "description": "Configuration.",
+            "itemtype": "property",
+            "name": "$options",
+            "type": "{Object}",
+            "class": "Loader",
+            "module": "Loader"
+        },
+        {
+            "file": "scripts/loader.php",
+            "line": 72,
+            "description": "Array with fallback directories for auto-loading.",
+            "itemtype": "property",
+            "name": "$fallback_directories",
+            "type": "{Object}",
+            "class": "Loader",
+            "module": "Loader"
+        },
+        {
+            "file": "scripts/loader.php",
+            "line": 80,
+            "description": "Array of stored namespace prefixes.",
+            "itemtype": "property",
+            "name": "$prefixes",
+            "type": "{Object}",
+            "class": "Loader",
+            "module": "Loader"
+        },
+        {
+            "file": "scripts/loader.php",
+            "line": 88,
+            "description": "Array of stored class mappings.",
+            "itemtype": "property",
+            "name": "$class_map",
+            "type": "{Object}",
+            "class": "Loader",
+            "module": "Loader"
+        },
+        {
+            "file": "scripts/loader.php",
+            "line": 96,
+            "description": "Constructor for the Loader class.",
+            "itemtype": "method",
+            "name": "__construct",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "$settings",
+                    "description": "array"
+                }
+            ],
+            "return": {
+                "description": "\\UsabilityDynamics\\Loader"
+            },
+            "version": "0.0.2",
+            "since": "0.0.2",
+            "class": "Loader",
+            "module": "Loader"
+        },
+        {
+            "file": "scripts/loader.php",
+            "line": 134,
+            "description": "Fronted Setup",
+            "return": {
+                "description": "$this"
+            },
+            "itemtype": "method",
+            "name": "template_redirect",
+            "author": "potanin@UD",
+            "version": "0.0.2",
+            "since": "0.0.2",
+            "class": "Loader",
+            "module": "Loader"
+        },
+        {
+            "file": "scripts/loader.php",
+            "line": 156,
+            "description": "Add Color Scheme",
+            "itemtype": "method",
+            "name": "extra_theme_headers",
+            "author": "potanin@UD",
+            "version": "0.0.2",
+            "since": "0.0.2",
+            "class": "Loader",
+            "module": "Loader"
+        },
+        {
+            "file": "scripts/loader.php",
+            "line": 170,
+            "description": "Add Class Map",
+            "params": [
+                {
+                    "name": "array",
+                    "description": "$class_map Class to filename map"
+                }
+            ],
+            "return": {
+                "description": "$this"
+            },
+            "itemtype": "method",
+            "name": "add_class_map",
+            "author": "potanin@UD",
+            "version": "0.0.2",
+            "since": "0.0.2",
+            "class": "Loader",
+            "module": "Loader"
+        },
+        {
+            "file": "scripts/loader.php",
+            "line": 195,
+            "description": "Registers a set of classes, merging with any others previously set.",
+            "params": [
+                {
+                    "name": "string",
+                    "description": "$prefix The classes prefix"
+                },
+                {
+                    "name": "array|string",
+                    "description": "$paths   The location(s) of the classes"
+                },
+                {
+                    "name": "bool",
+                    "description": "$prepend Prepend the location(s)"
+                }
+            ],
+            "return": {
+                "description": "$this"
+            },
+            "itemtype": "method",
+            "name": "add_class",
+            "author": "potanin@UD",
+            "version": "0.0.2",
+            "since": "0.0.2",
+            "class": "Loader",
+            "module": "Loader"
+        },
+        {
+            "file": "scripts/loader.php",
+            "line": 238,
+            "description": "Registers a set of classes, replacing any others previously set.",
+            "params": [
+                {
+                    "name": "string|array",
+                    "description": "$prefix The classes prefix or an object containing prefixes and strings."
+                },
+                {
+                    "name": "array|string",
+                    "description": "$paths  The location(s) of the classes"
+                }
+            ],
+            "return": {
+                "description": "$this"
+            },
+            "itemtype": "method",
+            "name": "set_namespace",
+            "author": "potanin@UD",
+            "version": "0.0.2",
+            "since": "0.0.2",
+            "class": "Loader",
+            "module": "Loader"
+        },
+        {
+            "file": "scripts/loader.php",
+            "line": 274,
+            "description": "Registers this instance as an autoloader.",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "$autoload_function [optional]. The autoload function being registered."
+                },
+                {
+                    "name": "bool",
+                    "description": "$throw This parameter specifies whether spl_autoload_register() should throw exceptions when the autoload_function cannot be registered."
+                },
+                {
+                    "name": "bool",
+                    "description": "$prepend If true, spl_autoload_register() will prepend the autoloader on the autoload stack instead of appending it."
+                }
+            ],
+            "itemtype": "method",
+            "name": "register",
+            "author": "potanin@UD",
+            "version": "0.0.2",
+            "since": "0.0.2",
+            "class": "Loader",
+            "module": "Loader"
+        },
+        {
+            "file": "scripts/loader.php",
+            "line": 292,
+            "description": "Unregisters this instance as an autoloader.",
+            "itemtype": "method",
+            "name": "unregister",
+            "author": "potanin@UD",
+            "version": "0.0.2",
+            "since": "0.0.2",
+            "class": "Loader",
+            "module": "Loader"
+        },
+        {
+            "file": "scripts/loader.php",
+            "line": 306,
+            "description": "Loads the given class or interface.",
+            "params": [
+                {
+                    "name": "string",
+                    "description": "$class The name of the class"
+                }
+            ],
+            "return": {
+                "description": "bool|null True if loaded, null otherwise"
+            },
+            "itemtype": "method",
+            "name": "load_class",
+            "author": "potanin@UD",
+            "version": "0.0.2",
+            "since": "0.0.2",
+            "class": "Loader",
+            "module": "Loader"
+        },
+        {
+            "file": "scripts/loader.php",
+            "line": 328,
+            "description": "Finds the path to the file where the class is defined.\n\n- $namespace Raw namespace.\n- $class_path Fully reoslved name.\n- $class_name Just the class name.",
+            "params": [
+                {
+                    "name": "string",
+                    "description": "$class The name of the class"
+                }
+            ],
+            "return": {
+                "description": "string|false The path if found, false otherwise"
+            },
+            "itemtype": "method",
+            "name": "find_file",
+            "author": "potanin@UD",
+            "version": "0.0.2",
+            "since": "0.0.2",
+            "class": "Loader",
+            "module": "Loader"
+        },
+        {
+            "file": "scripts/loader.php",
+            "line": 404,
+            "description": "Parse File Headers",
+            "example": [
+                "\n\n     Loader::get_file_data( 'style.css' );\n     Loader::get_file_data( 'my-module/my-module.php', 'module' );"
+            ],
+            "itemtype": "method",
+            "name": "get_file_data",
+            "author": "potanin@UD",
+            "version": "0.0.2",
+            "since": "0.0.2",
+            "params": [
+                {
+                    "name": "string",
+                    "description": "$path Full path to the target file."
+                },
+                {
+                    "name": "string",
+                    "description": "$type Type of target file, defaults to theme, must be defined in Loader::$headers."
+                }
+            ],
+            "return": {
+                "description": "array"
+            },
+            "class": "Loader",
+            "module": "Loader"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "unknown tag: version",
+            "line": " scripts/loader.php:2"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " scripts/loader.php:96"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " scripts/loader.php:134"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " scripts/loader.php:156"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " scripts/loader.php:170"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " scripts/loader.php:195"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " scripts/loader.php:238"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " scripts/loader.php:274"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " scripts/loader.php:292"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " scripts/loader.php:306"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " scripts/loader.php:328"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " scripts/loader.php:404"
+        },
+        {
+            "message": "Missing item type\nCreates and returns an HTML element with the specified name and attributes.",
+            "line": " scripts/loader.js:23"
+        }
+    ]
 }

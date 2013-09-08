@@ -39,7 +39,7 @@
        * @property $version
        * @type {Object}
        */
-      public $version = '0.0.3';
+      public static $version = '0.0.3';
 
       /**
        * Extra header parameters.
@@ -47,7 +47,7 @@
        * @property $headers
        * @type {Object}
        */
-      public $headers = array(
+      public static $headers = array(
         'theme' => array(
           'Name' => 'Theme Name',
           'ThemeURI' => 'Theme URI',

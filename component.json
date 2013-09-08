@@ -7,10 +7,12 @@
   "repo": "UsabilityDynamics/lib-loader",
   "dependencies": {
     "usabilitydynamics/lib-utility": "*"
-  },  
+  },
+  "libs": [
+    "libs/loader.php"
+  ],
   "scripts": [
-    "scripts/loader.js",
-    "scripts/loader.php"
+    "scripts/loader.js"
   ],
   "authors": [
     {

@@ -39,7 +39,7 @@
        * @property $version
        * @type {Object}
        */
-      public static $version = '0.0.3';
+      public static $version = '0.1.0';
 
       /**
        * Extra header parameters.
@@ -285,7 +285,7 @@
        * @version 0.0.2
        * @since 0.0.2
        */
-      public function register( $prepend = false, $throw = false, $prepend = false ) {
+      public function register( $prepend = false, $throw = false ) {
         spl_autoload_register( array( $this, 'load_class' ), $throw, $prepend );
       }
 
